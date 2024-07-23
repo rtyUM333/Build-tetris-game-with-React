@@ -5,7 +5,8 @@ import { createStage, checkCollison } from '../gameHelpers';
 // styled components
 import { StyledTetrisWrapper, StyledTetris } from "./styles/StyledTetris";
 
-// customed hooks
+// custom hooks
+import { useInterval } from "../hooks/useInterval";
 import { usePlayer } from "../hooks/usePlayer";
 import { useStage } from "../hooks/useStage";
 
@@ -65,6 +66,10 @@ const Tetris = () => {
             }
         }
     }
+
+    useInterval(() => {
+        drop();
+    }, dropTime)
 
     useEffect(() => {
         const handleDrop = () => {
